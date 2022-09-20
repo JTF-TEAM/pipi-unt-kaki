@@ -1,3 +1,4 @@
+#!usr/bin/python3
 #imports
 import nextcord
 impoet time
