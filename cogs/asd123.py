@@ -5,6 +5,7 @@ from nextcord.abc import GuildChannel
 from nextcord.ui import Button, View
 import datetime, time
 import json
+import random
 
 
 class asd123(commands.Cog):
@@ -23,6 +24,12 @@ class asd123(commands.Cog):
         await interaction.response.send_message('HI, MARS~!', ephemeral=1)
         return
     
+    @nextcord.slash_command()
+    async def kabooki(self, interaction: nextcord.Interaction, question: str):
+        await interaction.response.send_message(
+            content=f"{question} is {random.choice((' true', ' false'))}",
+            ephemeral=1
+        )
 
 def setup(bot):
     bot.add_cog(asd123(bot))
