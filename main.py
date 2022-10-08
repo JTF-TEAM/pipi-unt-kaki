@@ -15,21 +15,9 @@ for filename in os.listdir("./cogs"):
         bot.load_extension(f"cogs.{filename[:-3]}")
 
 
-####################### grting cock ##################################
+####################### geting cock ##################################
 batadase = pymonger.Monga()
 guilds = [guild.id for guild in bot.guilds]
-
-def log_all_members_test(bot):
-    for guild in bot.guilds:
-        for member in guild.members:
-            try:
-                batadase.add_note({
-                    "_id":member.id,
-                    'name': str(member),
-                    'created at': member.created_at
-                    })
-            except pymonger.pymongo.errors.DuplicateKeyError:
-                print('dupli exeption')
 
 @bot.event
 async def on_ready():
@@ -42,7 +30,9 @@ async def on_ready():
 async def on_message(message):
     batadase.increase_int_value(message.author.id, 'message count')
 
-
+@bot.slash_command(guild_ids=guilds)
+async def pukpuk(interaction: nextcord.Interaction, модуль: str):
+    await interaction.send(f'😎 BAVOVNA ', ephemeral=True)
 
 
 
