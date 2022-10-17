@@ -42,5 +42,9 @@ class asd123(commands.Cog):
             ephemeral=1
         )
 
+    @nextcord.slash_command(name='am_i_gay?',description="bot say truth about your sexuality")
+    async def yes(self, interaction: nextcord.Interaction):
+        await interaction.response.send_message('yes')
+
 def setup(bot):
     bot.add_cog(asd123(bot))
