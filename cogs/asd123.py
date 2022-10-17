@@ -31,5 +31,16 @@ class asd123(commands.Cog):
             ephemeral=1
         )
 
+    @nextcord.slash_command()
+    async def meth(self, interaction: nextcord.Interaction):
+        await interaction.response.send_message(
+            embed=nextcord.Embed(
+                title='O_O'
+            ).set_image(
+                url="https://i.ytimg.com/vi/Z3llc7h-gdw/maxresdefault.jpg"
+            ),
+            ephemeral=1
+        )
+
 def setup(bot):
     bot.add_cog(asd123(bot))
