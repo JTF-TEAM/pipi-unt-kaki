@@ -10,25 +10,21 @@ from nextcord.ext import application_checks, commands
 TOKEN = mainconf.poken
 intents = nextcord.Intents.all()
 bot = commands.Bot(intents=intents)
+
+
 for filename in os.listdir("./cogs"):
     if filename.endswith(".py"):
         bot.load_extension(f"cogs.{filename[:-3]}")
 
 
 ####################### geting cock ##################################
-batadase = pymonger.Monga()
 guilds = [guild.id for guild in bot.guilds]
 
 @bot.event
 async def on_ready():
     print(f"Logged in as {bot.user}")
-    await bot.change_presence(activity=nextcord.Activity(name=f'test', type=nextcord.ActivityType.listening))
-    # log_all_members_test(bot)
+    await bot.change_presence(activity=nextcord.Activity(name=f'-', type=nextcord.ActivityType.listening))
 
-
-@bot.event
-async def on_message(message):
-    batadase.increase_int_value(message.author.id, 'message count')
 
 @bot.slash_command(guild_ids=guilds)
 async def pukpuk(interaction: nextcord.Interaction, модуль: str):
