@@ -2,12 +2,9 @@
 import os
 from typing import Collection
 import nextcord
-from configs import pymonger
-from configs import mainconf
 from nextcord.ext import application_checks, commands
 #from nextcord_logging import Discord_Handler
 
-TOKEN = mainconf.poken
 intents = nextcord.Intents.all()
 bot = commands.Bot(intents=intents)
 
@@ -18,7 +15,7 @@ for filename in os.listdir("./cogs"):
 
 
 ####################### geting cock ##################################
-guilds = [guild.id for guild in bot.guilds]
+guilds = [786255515570667541]
 
 @bot.event
 async def on_ready():
@@ -52,5 +49,5 @@ async def unload(interaction: nextcord.Interaction, модуль: str):
     bot.unload_extension(f"cogs.{модуль}")
     await interaction.send(f'✅ Модуль **{модуль}** выгружен', ephemeral=True)
 
-
+TOKEN = '' # ssilka na tokuen
 bot.run(TOKEN)

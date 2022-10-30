@@ -1,11 +1,12 @@
 import nextcord
 from nextcord.ext import commands
 import random
-
+import motor.motor_asyncio as mator
+MONGO = ""
 class ref(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.databasa = motor('ssilka')
+        self.databasa = mator.AsyncIOMotorClient(MONGO)
 
     
     @nextcord.slash_command(name='create_referal')
